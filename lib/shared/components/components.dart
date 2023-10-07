@@ -1,40 +1,35 @@
 import 'package:flutter/material.dart';
 
-Widget loginBoutton ({
-     @required var email,
-     @required var password,
+Widget button ({
      required String text,
-     required VoidCallback onpress,
-     double widthButton =double.infinity,
+     required VoidCallback onPress,
+     double width =double.infinity,
+     double height =60,
      Color colorBackground = Colors.blue,
-     double  r= 10,})=> Container(
-      width:  widthButton,
-      height: 60,
+     double  r= 10,
+})=> Container(
+      width:  width,
+      height: height,
   decoration: BoxDecoration(
     color: colorBackground,
     borderRadius: BorderRadius.circular(r),
   ),
   child: MaterialButton(
-    // ignore: curly_braces_in_flow_control_structures
-    onPressed:onpress,
-    // ignore: curly_braces_in_flow_control_structures
+    onPressed:onPress,
     child: Text(
       text,
       style: const TextStyle(
         fontSize: 20,
-        color: Colors.white,
-
       )
-
     ),
   ),
 );
-Widget defualtForm ({
+Widget defaultForm ({
   required TextEditingController controller,
   required TextInputType inputType,
-  Function? onsubmit,
+  Function? onSubmit,
   required String validator,
-  required String lable,
+  required String label,
   required IconData prefix,
   IconData? postfix,
   bool hidden = false,
@@ -51,14 +46,14 @@ Widget defualtForm ({
       keyboardType: inputType,
       obscureText: hidden,
       onFieldSubmitted: (s) {
-        onsubmit!(s);
+        onSubmit!(s);
       },
       //function that i can do work on it
 
 // ignore: prefer_const_constructors
       decoration: InputDecoration(
         //hintText: 'abc@examble.com',
-  labelText: lable,
+  labelText: label,
 border: const OutlineInputBorder(),
 prefixIcon:Icon( prefix,),
 suffixIcon: IconButton(

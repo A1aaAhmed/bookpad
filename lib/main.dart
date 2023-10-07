@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tryyy/modules/login/login.dart';
+import 'styles/colors.dart';
+import 'modules/login/login.dart';
+
+
 
 void main() {
-  runApp(const MyApp());//the function wich runs the app
+  runApp(const MyApp());//the function which runs the app
   //click ctl + B to open definition
   //myapp is widget and class myapp
   // any thing on the screen considered a widget
@@ -23,12 +26,24 @@ class MyApp extends StatelessWidget{
     // the design
 
 
-    //matrial app is a home to all the screen in an app
+    //material app is a home to all the screen in an app
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      theme: ThemeData(
+        fontFamily:'Segoe Print',
+        appBarTheme:const AppBarTheme(
+          backgroundColor: ColorTheme.babyBlue,
+          titleTextStyle: TextStyle(
+              color: ColorTheme.white,
+              fontWeight: FontWeight.bold
+          )
+
+        ),
+
+      ),
+      home: const LoginScreen(),
     );
     // home need widget and also text
-    //matrialapp is a built in function that is a same as myapp
+    //matriarchal is a built in function that is a same as myapp
   }
 }
