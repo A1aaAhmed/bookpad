@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
 
-Widget button ({
-     required String text,
-     required VoidCallback onPress,
-     double width =double.infinity,
-     double height =60,
-     Color colorBackground = Colors.blue,
-     Color color = Colors.black,
-     double  r= 10,
-})=> Container(
-      width:  width,
+Widget button({
+  required String text,
+  required VoidCallback onPress,
+  double width = double.infinity,
+  double height = 60,
+  Color colorBackground = Colors.blue,
+  Color color = Colors.black,
+  double r = 10,
+  double bo = 0,
+}) =>
+    Container(
+      padding: EdgeInsets.only(bottom: bo),
+      width: width,
       height: height,
-  decoration: BoxDecoration(
-    color: colorBackground,
-    borderRadius: BorderRadius.circular(r),
-  ),
-  child: MaterialButton(
-    onPressed:onPress,
-    child: Text(
-      text,
-      style:  TextStyle(
-        color: color,
-        fontSize: 20,
-      )
-    ),
-  ),
-);
-Widget defaultForm ({
+      decoration: BoxDecoration(
+        color: colorBackground,
+        borderRadius: BorderRadius.circular(r),
+      ),
+      child: MaterialButton(
+        onPressed: onPress,
+        child: Text(text,
+            style: TextStyle(
+              color: color,
+              fontSize: 20,
+            )),
+      ),
+    );
+Widget defaultForm({
   required TextEditingController controller,
   required TextInputType inputType,
   Function? onSubmit,
@@ -36,8 +37,9 @@ Widget defaultForm ({
   IconData? postfix,
   bool hidden = false,
   Function? sufffun,
-})=>TextFormField(
-  validator: (String? value) {
+}) =>
+    TextFormField(
+      validator: (String? value) {
         if (value == null || value.trim().isEmpty) {
           return validator;
         }
@@ -55,21 +57,18 @@ Widget defaultForm ({
 // ignore: prefer_const_constructors
       decoration: InputDecoration(
         //hintText: 'abc@examble.com',
-  labelText: label,
-border: const OutlineInputBorder(),
-prefixIcon:Icon( prefix,),
-suffixIcon: IconButton(
-    onPressed: (){
-      sufffun!();
-    },
-
-      icon: Icon(
-          postfix,
+        labelText: label,
+        border: const OutlineInputBorder(),
+        prefixIcon: Icon(
+          prefix,
+        ),
+        suffixIcon: IconButton(
+          onPressed: () {
+            sufffun!();
+          },
+          icon: Icon(
+            postfix,
+          ),
+        ),
       ),
-),
-
-),
-);
-
-
-
+    );
