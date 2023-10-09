@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'modules/login/enter.dart';
 import 'styles/colors.dart';
-import 'modules/login/login.dart';
+
 
 
 
 void main() {
-  runApp(const MyApp());//the function which runs the app
+  runApp(const ProviderScope(child:  MyApp()));//the function which runs the app
   //click ctl + B to open definition
   //myapp is widget and class myapp
   // any thing on the screen considered a widget
@@ -33,7 +35,9 @@ class MyApp extends StatelessWidget{
         fontFamily:'Segoe Print',
         appBarTheme:const AppBarTheme(
           backgroundColor: ColorTheme.babyBlue,
+
           titleTextStyle: TextStyle(
+              fontSize: 30,
               color: ColorTheme.white,
               fontWeight: FontWeight.bold
           )
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget{
         ),
 
       ),
-      home: const LoginScreen(),
+      home:  EnterScreen(),
     );
     // home need widget and also text
     //matriarchal is a built in function that is a same as myapp

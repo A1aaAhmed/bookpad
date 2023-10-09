@@ -6,6 +6,7 @@ Widget button ({
      double width =double.infinity,
      double height =60,
      Color colorBackground = Colors.blue,
+     Color color = Colors.black,
      double  r= 10,
 })=> Container(
       width:  width,
@@ -18,7 +19,8 @@ Widget button ({
     onPressed:onPress,
     child: Text(
       text,
-      style: const TextStyle(
+      style:  TextStyle(
+        color: color,
         fontSize: 20,
       )
     ),

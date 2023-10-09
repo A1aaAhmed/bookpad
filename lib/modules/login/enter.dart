@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stroke_text/stroke_text.dart';
@@ -9,7 +8,7 @@ import '../../styles/colors.dart';
 
 
 
-class LoginScreen extends ConsumerWidget {
+class EnterScreen extends ConsumerWidget {
   //const LoginScreen({Key? key}) : super(key: key);
   void signInWG(WidgetRef ref){
     ref.watch(authProvider).signInWithGoogle();
@@ -23,40 +22,42 @@ class LoginScreen extends ConsumerWidget {
       //   title: const Text("BookPad"),
       // ),
       body:Column(
+       crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            alignment: Alignment.center,
-            height: 500,
+            alignment: Alignment.bottomCenter,
+            height: 450,
             decoration:  const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/book.png'),
+                image: AssetImage('assets/images/butter.png'),
                 fit: BoxFit.contain,
               ),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children:  const [
-                Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: StrokeText(
-                    text: "Login",
-                    textStyle: TextStyle(
-                        fontSize: 210,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children:  const [
+                  Padding(
+                    padding: EdgeInsets.only(top: 300),
+                    child: StrokeText(
+                      text: "Enter",
+                      textStyle: TextStyle(
+                        fontSize: 100,
                         color: ColorTheme.babyBlue,
+                      ),
+                      strokeColor:  ColorTheme.white,
+                      strokeWidth: 5,
                     ),
-                    strokeColor:  ColorTheme.white,
-                    strokeWidth: 5,
                   ),
-                ),
-              ]
+                ]
             ),
           ),
           button(
             color: ColorTheme.white,
             width:200,
             height:60,
-            text: 'Login with Google',
+            text: 'Welcome Back ^ ^',
             onPress: () => signInWG(ref),
 
           ),
