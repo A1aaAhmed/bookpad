@@ -4,13 +4,26 @@ import 'package:stroke_text/stroke_text.dart';
 import 'package:tryyy/modules/login/authent.dart';
 import '../../shared/components/components.dart';
 import '../../styles/colors.dart';
+import '../homescreen/homepage.dart';
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
-
   //const LoginScreen({Key? key}) : super(key: key);
-  void signInWG(WidgetRef ref) {
-    ref.watch(authProvider).signInWithGoogle();
+  void signInWG(WidgetRef ref, BuildContext context) async {
+    final smessg = ScaffoldMessenger.of(context);
+    final nav = Navigator.of(context);
+    final errorModel = await ref.read(authProvider).signInWithGoogle();
+    if (errorModel.error == null) {
+      ref.read(userProvider.notifier).update((state) => errorModel.data);
+      nav.push(MaterialPageRoute(
+          builder: (
+        context,
+      ) =>
+              HomePage()));
+    } else {
+      print("qqqqqqqqqqqqqqqqqqwwwww");
+      smessg.showSnackBar(SnackBar(content: Text(errorModel.error!)));
+    }
   }
 
   @override
@@ -56,7 +69,7 @@ class LoginScreen extends ConsumerWidget {
             width: 200,
             height: 60,
             text: 'Login with Google',
-            onPress: () => signInWG(ref),
+            onPress: () => signInWG(ref, context),
           ),
         ],
       ),

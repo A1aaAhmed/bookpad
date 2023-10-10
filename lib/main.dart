@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                 color: ColorTheme.white,
                 fontWeight: FontWeight.bold)),
       ),
-      home: LoginScreen(),
+      home: const LoginScreen(),
     );
     // home need widget and also text
     //matriarchal is a built in function that is a same as myapp

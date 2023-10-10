@@ -3,7 +3,9 @@ const authRouter =express.Router();
 const user =require("../modeles/user.js");
 
 
+
 authRouter.post('/api/signup',async(req,res)=>{
+    console.log("gotttt");
     try {
        const {name,email,image}= req.body
        let myUser = await user.findOne({
@@ -20,7 +22,7 @@ authRouter.post('/api/signup',async(req,res)=>{
        res.json({myUser});
 
     }catch(e){
-        console.log(e);
+        res.status(500).json({error:e.message});
 
     }
 });
